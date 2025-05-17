@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مستشارك المهني الذكي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4d7cff;
+            --secondary: #2a4b7c;
+            --accent: #e1f0ff;
+            --text: #1a3658;
+            --white: #ffffff;
+            --free: #2e7d32;
+            --paid: #c62828;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f3f9ff, #e1f0ff);
+            min-height: 100vh;
+            padding: 2rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            background-color: var(--white);
+            border-radius: 50%;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        h1 {
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .search-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 58, 120, 0.1);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e7ff;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--white);
+            cursor: pointer;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(77, 124, 255, 0.4);
+        }
+        
+        .courses-section {
+            margin-top: 3rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .course-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        .course-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            min-height: 3.5rem;
+        }
+        
+        .course-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .field {
+            background: rgba(77, 124, 255, 0.1);
+            color: var(--primary);
+        }
+        
+        .free {
+            background: rgba(46, 125, 50, 0.1);
+            color: var(--free);
+        }
+        
+        .paid {
+            background: rgba(198, 40, 40, 0.1);
+            color: var(--paid);
+        }
+        
+        .level {
+            background: rgba(42, 75, 124, 0.1);
+            color: var(--secondary);
+        }
+        
+        .course-link {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: rgba(77, 124, 255, 0.1);
+            color: var(--primary);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+        
+        .course-link:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 1.5rem;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-card {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="شعار مستشارك المهني">
+            </div>
+            <h1>مستشارك المهني الذكي</h1>
+            <p class="subtitle">اكتشف أفضل الكورسات لتطوير مسارك المهني</p>
+        </header>
+        
+        <div class="search-card">
+            <form action="{{ url_for('handle_results') }}" method="POST">
+                <!-- CSRF Token Protection -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                
+                <div class="form-group">
+                    <label for="skills_interests">مجال اهتمامك</label>
+                    <select name="skills_interests" id="skills_interests" required>
+                        <option value="" disabled selected>اختر مجال اهتمامك</option>
+                        {% for field in fields %}
+                        <option value="{{ field }}">{{ field }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="level">مستواك الحالي</label>
+                    <select name="level" id="level" required>
+                        <option value="" disabled selected>اختر مستواك</option>
+                        <option value="beginner">مبتدئ</option>
+                        <option value="professional">محترف</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="course_type">نوع الكورس</label>
+                    <select name="course_type" id="course_type" required>
+                        <option value="" disabled selected>اختر نوع الكورس</option>
+                        <option value="مجاني">مجاني</option>
+                        <option value="مدفوع">مدفوع</option>
+                        <option value="كلاهما">لا يهم (أي نوع)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn">ابحث عن الكورسات</button>
+            </form>
+        </div>
+        
+        <section class="courses-section">
+            <h2 class="section-title">أحدث الكورسات المتاحة</h2>
+            
+            <div class="courses-grid">
+                {% for course in all_courses %}
+                <div class="course-card">
+                    <h3 class="course-title">{{ course.title }}</h3>
+                    
+                    <div class="course-meta">
+                        <span class="badge field">{{ course.field }}</span>
+                        <span class="badge {{ 'free' if course.type == 'مجاني' else 'paid' }}">
+                            {{ course.type }}
+                        </span>
+                        <span class="badge level">
+                            {{ 'مبتدئ' if course.level == 'beginner' else 'محترف' }}
+                        </span>
+                    </div>
+                    
+                    <a href="{{ course.link }}" target="_blank" class="course-link">
+                        ابدأ التعلم الآن &larr;
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <footer>
+            <p>جميع الحقوق محفوظة &copy; {{ current_year }} | مستشارك المهني الذكي</p>
+        </footer>
+    </div>
+</body>
+</html>

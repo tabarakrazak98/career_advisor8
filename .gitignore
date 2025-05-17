@@ -1,0 +1,6 @@
+_pycache_/
+*.pyc
+instance/
+.env
+*.db
+static/images/logo_files/

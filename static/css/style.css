@@ -1,0 +1,17 @@
+/* أنماط أساسية */
+:root {
+    --primary-color: #4d7cff;
+    --secondary-color: #2a4b7c;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.6;
+}
+
+/* أنماط مشتركة بين الصفحات */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
