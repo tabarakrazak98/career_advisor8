@@ -102,5 +102,9 @@ def page_not_found(error):
 def internal_server_error(error):
     return render_template('errors/500.html', error=error.description), 500
 
+# Run App
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
